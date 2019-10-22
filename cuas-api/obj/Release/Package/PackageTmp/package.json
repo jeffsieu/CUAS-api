@@ -1,0 +1,28 @@
+{
+  "name": "cuas-api",
+  "version": "0.0.5",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "cuas-api",
+  "author": {
+    "name": "Swift Office",
+    "email": "swift_developer@outlook.com"
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "config": "3.2.3",
+    "cookie-parser": "1.4.4",
+    "debug": "4.1.1",
+    "express": "4.17.1",
+    "express4-tedious": "0.3.0",
+    "tedious": "6.6.0",
+    "morgan": "1.9.1",
+    "pug": "2.0.4",
+    "serve-favicon": "2.5.0"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  }
+}

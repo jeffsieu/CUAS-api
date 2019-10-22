@@ -1,0 +1,15 @@
+{
+  "connection": {
+    "server": "cuas-dev.database.windows.net",
+    "authentication": {
+      "type": "default",
+      "options": {
+        "userName": "cuas-admin",
+        "password": "Singapore2019@"
+      }
+    },
+    "options": {
+      "database": "cuas-dev-db"
+    }
+  }
+}

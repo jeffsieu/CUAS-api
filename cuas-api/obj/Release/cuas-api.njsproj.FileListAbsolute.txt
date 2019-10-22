@@ -1,0 +1,2 @@
+C:\Users\Jonathan Ng\OneDrive\Documents\GitHub\CUAS-api\cuas-api\obj\Release\cuas-api.njsprojAssemblyReference.cache
+C:\Users\Jonathan Ng\OneDrive\Documents\GitHub\CUAS-api\cuas-api\bin\Microsoft.NodejsTools.WebRole.dll

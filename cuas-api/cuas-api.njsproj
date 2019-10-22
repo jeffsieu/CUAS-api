@@ -33,6 +33,8 @@
     <Content Include="config\default.json">
       <SubType>Code</SubType>
     </Content>
+    <None Include="cuas-dev - FTP.pubxml" />
+    <None Include="cuas-dev - Web Deploy.pubxml" />
     <Content Include="routes\index.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
@@ -40,6 +42,8 @@
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="config\" />
