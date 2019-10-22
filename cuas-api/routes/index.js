@@ -12,3 +12,41 @@ router.get('/', function (req, res) {
 });
 
 module.exports = router;
+
+
+/* GET single task. *//*
+router.get('/:id', function (req, res) {
+
+    req.sql("select * from todo where id = @id for json path, without_array_wrapper")
+        .param('id', req.params.id, TYPES.Int)
+        .into(res, '{}');
+
+});
+
+*//* POST create task. *//*
+router.post('/', function (req, res) {
+
+    req.sql("exec createTodo @todo")
+        .param('todo', req.body, TYPES.NVarChar)
+        .exec(res);
+
+});
+
+*//* PUT update task. *//*
+router.put('/:id', function (req, res) {
+
+    req.sql("exec updateTodo @id, @todo")
+        .param('id', req.params.id, TYPES.Int)
+        .param('todo', req.body, TYPES.NVarChar)
+        .exec(res);
+
+});
+
+*//* DELETE single task. *//*
+router.delete('/:id', function (req, res) {
+
+    req.sql("delete from todo where id = @id")
+        .param('id', req.params.id, TYPES.Int)
+        .exec(res);
+
+});*/

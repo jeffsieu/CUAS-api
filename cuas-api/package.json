@@ -1,13 +1,14 @@
 {
   "name": "cuas-api",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "description": "cuas-api",
   "author": {
-    "name": ""
+    "name": "Swift Office",
+    "email": "swift_developer@outlook.com"
   },
   "dependencies": {
     "body-parser": "1.19.0",
