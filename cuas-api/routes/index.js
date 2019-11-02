@@ -1,5 +1,6 @@
 'use strict';
 var express = require('express');
+var url = require('url');
 var router = express.Router();
 var TYPES = require('tedious').TYPES;
 
@@ -11,84 +12,26 @@ router.get('/customers', function (req, res) {
 
 });
 
+router.post('/report', function (req, res) {
+    var params = url.parse(req.url, true).query;
+    
+    req.sql("Insert into InfoReporting values(@UserID,@AndroidID,@Altitude,@Bearing,@Colour,@Latitude,@Longitude,@Light,@NearestLandmark,@Payload,@Speed,@Timestamp)")
+        .param('AndroidID', params.AndroidID, TYPES.NVarChar)
+        .param('Altitude', params.Altitude, TYPES.NVarChar)
+        .param('Bearing', params.Bearing, TYPES.NVarChar)
+        .param('Colour', params.Colour, TYPES.NVarChar)
+        .param('Latitude', params.Latitude, TYPES.NVarChar)
+        .param('Longitude', params.Longitude, TYPES.NVarChar)
+        .param('Light', params.Light, TYPES.NVarChar)
+        .param('NearestLandmark', params.NearestLandmark, TYPES.NVarChar)
+        .param('Payload', params.Payload, TYPES.NVarChar)
+        .param('Speed', params.Speed, TYPES.NVarChar)
+        .param('Timestamp', params.Timestamp, TYPES.DateTime2)
+        .param('UserID', params.UserID, TYPES.NVarChar)
+        .exec(res);
+    console.log(params);
+});
+
 module.exports = router;
 
 
-/* GET single task. *//*
-router.get('/:id', function (req, res) {
-
-    req.sql("select * from todo where id = @id for json path, without_array_wrapper")
-        .param('id', req.params.id, TYPES.Int)
-        .into(res, '{}');
-
-});
-
-*//* POST create task. *//*
-router.post('/', function (req, res) {
-
-    req.sql("exec createTodo @todo")
-        .param('todo', req.body, TYPES.NVarChar)
-        .exec(res);
-
-});
-
-*//* PUT update task. *//*
-router.put('/:id', function (req, res) {
-
-    req.sql("exec updateTodo @id, @todo")
-        .param('id', req.params.id, TYPES.Int)
-        .param('todo', req.body, TYPES.NVarChar)
-        .exec(res);
-
-});
-
-*//* DELETE single task. *//*
-router.delete('/:id', function (req, res) {
-
-    req.sql("delete from todo where id = @id")
-        .param('id', req.params.id, TYPES.Int)
-        .exec(res);
-
-});*/
-
-/*//rest api to get all customers
-app.get('/customer', function (req, res) {
-    connection.query('select * from customer', function (error, results, fields) {
-        if (error) throw error;
-        res.end(JSON.stringify(results));
-    });
-});
-//rest api to get a single customer data
-app.get('/customer/:id', function (req, res) {
-    connection.query('select * from customers where Id=?', [req.params.id], function (error, results, fields) {
-        if (error) throw error;
-        res.end(JSON.stringify(results));
-    });
-});
-
-//rest api to create a new customer record into mysql database
-app.post('/customer', function (req, res) {
-    var params = req.body;
-    console.log(params);
-    connection.query('INSERT INTO customer SET ?', params, function (error, results, fields) {
-        if (error) throw error;
-        res.end(JSON.stringify(results));
-    });
-});
-
-//rest api to update record into mysql database
-app.put('/customer', function (req, res) {
-    connection.query('UPDATE `customer` SET `Name`=?,`Address`=?,`Country`=?,`Phone`=? where `Id`=?', [req.body.Name, req.body.Address, req.body.Country, req.body.Phone, req.body.Id], function (error, results, fields) {
-        if (error) throw error;
-        res.end(JSON.stringify(results));
-    });
-});
-
-//rest api to delete record from mysql database
-app.delete('/customer', function (req, res) {
-    console.log(req.body);
-    connection.query('DELETE FROM `customer` WHERE `Id`=?', [req.body.Id], function (error, results, fields) {
-        if (error) throw error;
-        res.end('Record has been deleted!');
-    });
-});*/
